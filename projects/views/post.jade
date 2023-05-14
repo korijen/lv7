@@ -1,0 +1,31 @@
+doctype html
+html
+	head
+		meta(http-equiv="content-type", content="#{contentType}; charset=UTF-8")
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+	a(href="/") Index 
+	h1 Ispunite obrazac za dodavanje projekta
+	include message
+	form(action='/post',method='post')
+		div(class="form-input")
+			label(for="name") Ime projekta:
+			input(type='text',name='name',placeholder='Ime projekta')
+		div(class="form-input")
+			label(for="desc") Opis projekta:
+			textarea(name='desc',placeholder='Opis')
+		div(class="form-input")
+			label(for="cost") Cijena projekta:
+			input(type="text", name="cost")
+		div(class="form-input")
+			label(for="tasks") Obavljeni poslovi projekta:
+			textarea(name='tasks',placeholder='Obaljeni zadatci')
+		div(class="form-input")
+			label(for="date_start") Vrijeme pocetka projekta:
+			input(type="date", name="date_start")
+		div(class="form-input")
+			label(for="date_finish") Vrijeme zavrsetka projekta:
+			input(type="date", name="date_finish") 
+		div(class="form-input")
+			button(type="submit") Postavi

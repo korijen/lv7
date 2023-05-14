@@ -1,0 +1,20 @@
+if locals.user
+	div#menu
+		p
+			span(class=name)= user.name
+		p
+			a(href='/')  Index
+		p
+			a(href='/post')  Postavi novi projekt
+		p
+			a(href="/projects") Pregledaj svoje projekte i arhivu
+		p
+			a(href="/membership") Pregledaj projekte u kojima sam član
+		p
+			a(href='/logout')  Odjava
+else
+	div#menu
+		p
+			a(href='/login')  Prijava
+		p
+			a(href='/register')  Registracija

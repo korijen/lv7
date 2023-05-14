@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.form-input {
+  margin: 1em 0em 1em 0em;
+}
+
+.form-input input, .form-input textarea {
+  margin: 0em 1em 0em 1em;
+}
+
+.form-input button{
+  font-size: 15px;
+}

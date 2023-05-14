@@ -1,0 +1,17 @@
+doctype html
+html
+	head
+		meta(http-equiv="content-type", content="#{contentType}; charset=UTF-8")
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+	include menu
+	p Ispunite obrazac za registraciju
+	include message
+	form(action='/register',method='post')
+		p
+			input(type='text',name='name',placeholder='Korisničko ime')
+		p
+			input(type='password',name='pass',placeholder='Lozinka')
+		p
+			input(type='submit',value='Registriraj se')

@@ -1,0 +1,73 @@
+doctype html
+html
+head
+    meta(http-equiv="content-type", content="#{contentType}; charset=UTF-8")
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+body
+    include menu
+    hr
+    each project in projects
+        div(class="project")
+            h1 Naziv projekta:
+            p= project.name
+            h4 Opis projekta:
+            p= project.desc
+            h4 Cijena projekta:
+            p= project.cost
+            h4 Poslovi projekta:
+            p= project.tasks
+            h4 Datum početka:
+            p= project.date_start
+            h4 Datum završetka:
+            p= project.date_finish
+            h4 Članovi projekta:
+            p
+                if (project.users)
+                    each username in project.users
+                        span= username
+                else
+                    span N/A
+            h4 Dodaj novog korisnika
+            form(action="/addMember", method="post") 
+                label(for="username") Ime novog korisnika: 
+                input(type="text", name="username" placeholder="Točan naziv korisnika")
+                button(type="submit" name="project_id" value="#{project.id}") Dodaj 
+            h4 Akcije
+            form(action="/delete", method="post")
+                button(type="submit" name="delete" value="#{project.id}") Obriši ovaj projekt
+            if (project.archived == "no")
+                    form(action="/editProject", method="get")
+                        button(type="submit" name="edit" value="#{project.id}") Uredi ovaj projekt
+                    form(action="/archive", method="post") 
+                        button(type="submit" name="archive" value="#{project.id}") Arhiviraj ovaj projekt
+                else
+                    p Ovaj project je arhiviran
+    hr
+    hr
+    h1 Arhiva
+    each project in projects
+        if(project.archived == "yes")
+            hr
+            div(class="project")
+                h2 Naziv projekta:
+                p= project.name
+                h4 Opis projekta:
+                p= project.desc
+                h4 Cijena projekta:
+                p= project.cost
+                h4 Poslovi projekta:
+                p= project.tasks
+                h4 Datum početka:
+                p= project.date_start
+                h4 Datum završetka:
+                p= project.date_finish
+                h4 Članovi projekta:
+                p
+                    if (project.users)
+                        each username in project.users
+                            span= username
+                            br
+                    else
+                        span N/A
+                p Ovaj project je arhiviran 
